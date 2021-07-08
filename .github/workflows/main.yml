@@ -14,9 +14,9 @@ jobs:
       - name: Checkmarx AST CLI Action
         uses: checkmarxDev/ast-github-action@master #Github Action version
         with:
-          project_name: AMF-WebGoat-V1
-          cx_tenant: david_tenant
-          base_uri: https://eu.ast.checkmarx.net #https://ast-master.dev.cxast.net 
+          project_name: demoWebViewGoat-master01
+          cx_tenant: org_admin
+          base_uri: https://ast-master.dev.cxast.net #https://ast-master.dev.cxast.net 
           cx_client_id: ${{ secrets.CLIENT_ID }}
           cx_client_secret: ${{ secrets.SECRET }}
           scan_types: sast,kics,sca
