@@ -1,4 +1,4 @@
-WebViewGoat test small change
+WebViewGoat
 ===========
 
 This is an Android application designed to read QRCodes that contain web links.
