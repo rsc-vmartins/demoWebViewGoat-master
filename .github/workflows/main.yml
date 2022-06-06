@@ -11,12 +11,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Checkmarx AST CLI Action
-        uses: checkmarxDev/ast-github-action@master #Github Action version
+      - name: Checkmarx AST Github Action
+        # You may pin to the exact commit or the version.
+        # uses: Checkmarx/ast-github-action@120ae714236b39685a59726fa20cf09ff2f25b69
+        uses: Checkmarx/ast-github-action@2.0.5
         with:
-          project_name: DemoWebViewGoat-master01
-          cx_tenant: nfr_redshift_nfr
+          # Provide the AST portal URL
           base_uri: https://eu.ast.checkmarx.net
+          # Provide the Tenant for AST portal URL
+          cx_tenant: nfr_redshift_nfr
+          # Client ID for AST portal authentication
           cx_client_id: ${{ secrets.CLIENT_ID }}
+          # Secret key for AST portal authentication
           cx_client_secret: ${{ secrets.SECRET }}
-          scan_types: sast,kics,sca
+          # Select a Checkmarx Project Name
+          project_name: DemoWebViewGoat-master01 # optional, default is ${{ github.repository }}
+          # Branch name
+          #branch: # optional, default is ${{ github.head_ref || github.ref }}
+          # GitHub API Token
+          #github_token: # optional, default is ${{ github.token }}
+          # Additional parameters for AST scan
+          additional_params: # optional, default is 
+#      - name: Checkmarx AST CLI Action
+#        uses: checkmarxDev/ast-github-action@master #Github Action version
+#        with:
+#          project_name: DemoWebViewGoat-master01
+#          cx_tenant: nfr_redshift_nfr
+#          base_uri: https://eu.ast.checkmarx.net
+#          cx_client_id: ${{ secrets.CLIENT_ID }}
+#          cx_client_secret: ${{ secrets.SECRET }}
+#          scan_types: sast,kics,sca
